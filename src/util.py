@@ -7,7 +7,7 @@ def testingWebcam(callback: Callable[[cv2.Mat], cv2.Mat], displayVideo: bool = F
 
         def frameLoop(frame) -> bool:
             cv2.imshow("preview", callback(frame))
-            key = cv2.waitKey(5)
+            key = cv2.waitKey(50)
             if key == 27:  # exit on ESC
                 cv2.destroyWindow("preview")
                 vc.release()

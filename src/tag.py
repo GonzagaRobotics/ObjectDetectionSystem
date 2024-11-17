@@ -11,7 +11,7 @@ class Recognizer():
                                   [-marker_size / 2, -marker_size / 2, 0]], dtype=np.float32)
         return marker_points
 
-    def __init__(self, pklPath: str = "../data/calibration_alienwarex14r2webcam.pckl", markerSize: float = 0.002):
+    def __init__(self, pklPath: str = "calibration_logitech.pckl", markerSize: float = 0.16):
         # 200 mm size of square tag
         self.objPoints = self.getTagPoints(markerSize)
 
@@ -58,7 +58,7 @@ class DetectedTag():
         return row
 
 class TagDetector():
-    predefinedTags = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_6X6_250)
+    predefinedTags = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_4X4_50)
 
     def processor(self, mat: cv2.Mat) -> pd.DataFrame:
         r = Recognizer()

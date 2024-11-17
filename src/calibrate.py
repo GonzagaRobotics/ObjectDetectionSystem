@@ -106,9 +106,9 @@ print(distCoeffs)
     
 # Save values to be used where matrix+dist is required, for instance for posture estimation
 # I save files in a pickle file, but you can use yaml or whatever works for you
-f = open('calibration.pckl', 'wb')
+f = open('calibration_logitech.pckl', 'wb')
 pickle.dump((cameraMatrix, distCoeffs, rvecs, tvecs), f)
 f.close()
     
 # Print to console our success
-print('Calibration successful. Calibration file used: {}'.format('calibration.pckl'))
+print('Calibration successful. Calibration file used: {}'.format('calibration_logitech.pckl'))

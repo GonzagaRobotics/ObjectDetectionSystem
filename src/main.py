@@ -2,30 +2,30 @@ import os
 
 import pandas as pd
 
-from src.inference import ObjDetector
-from src.tag import TagDetector
+from inference import ObjDetector
+from tag import TagDetector
 import cv2
 import copy
 
-from src.util import testingWebcam
+from util import testingWebcam
 
 t = TagDetector()
-i = ObjDetector()
+# i = ObjDetector()
 
 class Processor:
     def refresh(self, img: cv2.Mat):
         self.tResult = t.processor(img)
-        self.iResult = i.processor(img)
+        # self.iResult = i.processor(img)
 
     def processor(self, img: cv2.Mat) -> pd.DataFrame:
-        return pd.concat([self.tResult, self.iResult]).reset_index().drop(axis='columns', columns=['index'])
+        return self.tResult.reset_index().drop(axis='columns', columns=['index'])
 
     def testingProcessor(self, img: cv2.Mat) -> cv2.Mat:
         self.refresh(img)
-        os.system("cls")
-        print(pd.concat([self.tResult, self.iResult]).reset_index().drop(axis='columns', columns=['index']))
+        print(self.tResult.reset_index().drop(axis='columns', columns=['index']))
+        print("\r", sep='')
         newImg = t.testingProcessor(self.tResult, copy.deepcopy(img))
-        newImg = i.testingProcessor(self.iResult, newImg)
+        # newImg = i.testingProcessor(self.iResult, newImg)
         return newImg
 
 p = Processor()
