@@ -1,5 +1,4 @@
 from abc import ABC, abstractmethod
-import copy
 
 import cv2
 import pandas as pd
