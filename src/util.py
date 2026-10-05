@@ -1,4 +1,5 @@
 from typing import Callable
+
 import cv2
 
 def testingWebcam(callback: Callable[[cv2.Mat], cv2.Mat], displayVideo: bool = False):
@@ -6,7 +7,7 @@ def testingWebcam(callback: Callable[[cv2.Mat], cv2.Mat], displayVideo: bool = F
         cv2.namedWindow("preview")
 
         def frameLoop(frame) -> bool:
-            cv2.imshow("preview", callback(frame))
+            cv2.imshow("preview", cv2.resize(callback(frame), (720, 480)))
             key = cv2.waitKey(50)
             if key == 27:  # exit on ESC
                 cv2.destroyWindow("preview")
@@ -15,13 +16,27 @@ def testingWebcam(callback: Callable[[cv2.Mat], cv2.Mat], displayVideo: bool = F
             else:
                 return True
     else:
+
         def frameLoop(frame) -> bool:
             callback(frame)
             return True
 
     vc = cv2.VideoCapture(0)
+    vc.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)
+    vc.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
+
     while True:
         rval, frame = vc.read()
         if rval:
             if frameLoop(frame) == False:
                 break
+
+def testingImage(callback: Callable[[cv2.Mat], cv2.Mat], image: str):
+    img = callback((cv2.imread(image))) # type: ignore
+
+    cv2.imshow("Image",cv2.resize(img, (720, 480)))
+    while cv2.getWindowProperty("Image", 0) >= 0:
+        key = cv2.waitKey(50)
+        if key == 27:  # exit on ESC
+            cv2.destroyWindow("Image")
+            break
