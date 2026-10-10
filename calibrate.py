@@ -1,7 +1,7 @@
 # System information:
 # - Linux Mint 18.1 Cinnamon 64-bit
 # - Python 2.7 with OpenCV 3.2.0
-# Resources: 
+# Resources:
 # - OpenCV-Python tutorial for calibration: http://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_calib3d/py_calibration/py_calibration.html
 #   - Variable names were changed for clarity
 
@@ -19,8 +19,8 @@ CHESSBOARD_CORNERS_ROWCOUNT = 9
 CHESSBOARD_CORNERS_COLCOUNT = 6
 
 # Theoretical object points for the chessboard we're calibrating against,
-# These will come out like: 
-#     (0, 0, 0), (1, 0, 0), ..., 
+# These will come out like:
+#     (0, 0, 0), (1, 0, 0), ...,
 #     (CHESSBOARD_CORNERS_ROWCOUNT-1, CHESSBOARD_CORNERS_COLCOUNT-1, 0)
 # Note that the Z value for all stays at 0, as this is a printed out 2D image
 # And also that the max point is -1 of the max because we're zero-indexing
@@ -50,12 +50,12 @@ for iname in images:
     if board == True:
         # Add the points in 3D that we just discovered
         objpoints.append(objp)
-        
+
         # Enhance corner accuracy with cornerSubPix
         corners_acc = cv2.cornerSubPix(
-                image=gray, 
-                corners=corners, 
-                winSize=(11, 11), 
+                image=gray,
+                corners=corners,
+                winSize=(11, 11),
                 zeroZone=(-1, -1),
                 criteria=(cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 30, 0.001)) # Last parameter is about termination critera
         imgpoints.append(corners_acc)
@@ -63,7 +63,7 @@ for iname in images:
         # If our image size is unknown, set it now
         if not imageSize:
             imageSize = gray.shape[::-1]
-    
+
         # Draw the corners to a new image to show whoever is performing the calibration
         # that the board was properly detected
         img = cv2.drawChessboardCorners(img, (CHESSBOARD_CORNERS_ROWCOUNT, CHESSBOARD_CORNERS_COLCOUNT), corners_acc, board)
@@ -99,16 +99,16 @@ calibration, cameraMatrix, distCoeffs, rvecs, tvecs = cv2.calibrateCamera(
         imageSize=imageSize,
         cameraMatrix=None,
         distCoeffs=None)
-    
+
 # Print matrix and distortion coefficient to the console
 print(cameraMatrix)
 print(distCoeffs)
-    
+
 # Save values to be used where matrix+dist is required, for instance for posture estimation
 # I save files in a pickle file, but you can use yaml or whatever works for you
-f = open('calibration_logitech.pckl', 'wb')
+f = open('calibration_robot_cam.pckl', 'wb')
 pickle.dump((cameraMatrix, distCoeffs, rvecs, tvecs), f)
 f.close()
-    
+
 # Print to console our success
 print('Calibration successful. Calibration file used: {}'.format('calibration_logitech.pckl'))
