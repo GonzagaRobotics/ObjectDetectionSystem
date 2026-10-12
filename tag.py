@@ -38,19 +38,11 @@ class Recognizer:
         return cv2.drawFrameAxes(mat, self.cameraMatrix, self.distCoeffs[0], rvec, tvec, 1)
 
 class DetectedTag:
-    def __init__(self, points: cv2.typing.MatLike, id: int):
+    def __init__(self, points: cv2.typing.MatLike, id: int, recognizer: Recognizer):
         self.points = points
         self.id = id
-        totalX = 0
-        totalY = 0
-        for point in points:
-            totalX = totalX + point[0]
-            totalY = totalY + point[1]
-        self.centerX = int(totalX / 4)
-        self.centerY = int(totalY / 4)
 
-        _, self.rvecs, self.tvecs = Recognizer().getPose(corners=points)
-        print(self.tvecs)
+        _, self.rvecs, self.tvecs = recognizer.getPose(corners=points)
         self.X = self.tvecs[0][0]
         self.Y = self.tvecs[1][0]
         self.Z = self.tvecs[2][0]
@@ -68,12 +60,13 @@ class DetectedTag:
         row["X"] = self.X
         row["Y"] = self.Y
         row["Z"] = self.Z
-        row["centerX"] = self.centerX
-        row["centerY"] = self.centerY
         return row
 
 class TagDetector(Processor):
     predefinedTags = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_4X4_50)
+
+    def __init__(self, calibration_file: str, marker_size: float):
+        self.recognizer = Recognizer(pklPath=calibration_file, markerSize=marker_size)
 
     def refresh(self, img: cv2.Mat):
         return super().refresh(img)
@@ -83,20 +76,22 @@ class TagDetector(Processor):
             dictionary=self.predefinedTags
         ).detectMarkers(image=mat)
         vectors = {}
-        r = Recognizer()
+        r = self.recognizer
         for i in range(len(corners)):
             _, rvec, tvec = r.getPose(corners[i])
             vectors[id[i]] = (tvec, rvec)
-        
+
         return vectors
 
     def testingProcessor(self, img: cv2.Mat) -> cv2.Mat:
         corners, id, _ = cv2.aruco.ArucoDetector(
             dictionary=self.predefinedTags
         ).detectMarkers(image=img)
-        r = Recognizer()
-        for row in corners:
-            _, rvec, tvec = r.getPose(row)
+        r = self.recognizer
+        for i in range(len(corners)):
+            _, rvec, tvec = r.getPose(corners[i])
+            tag_detect = DetectedTag(corners[i], id[i], self.recognizer).createPandasSeries()
+            print(tag_detect)
             img = r.drawImage(rvec, tvec, img)
 
         return img
