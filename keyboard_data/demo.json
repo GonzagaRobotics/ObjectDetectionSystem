@@ -1,0 +1,65 @@
+{
+    "marker_size": 1.5,
+    "corners": {
+        "0": {
+            "name": "top_right_corner",
+            "coordinates": {
+                "x": -0.32,
+                "y": -1.88,
+                "z": 2.76
+            }
+        },
+        "1": {
+            "name": "top_left_corner",
+            "coordinates": {
+                "x": -0.254,
+                "y": -2.6,
+                "z": 2.76
+            }
+        },
+        "2": {
+            "name": "bottom_left_corner",
+            "coordinates": {
+                "x": 0.16,
+                "y": 2.478,
+                "z": 2.18
+            }
+        },
+        "3": {
+            "name": "bottom_right_corner",
+            "coordinates": {
+                "x": -0.1,
+                "y": 2.025,
+                "z": 2.18
+            }
+        }
+    },
+    "distances": {
+        "0": {
+            "3": {
+                "axis": "y",
+                "direction": -1,
+                "value": 12.38
+            }
+        },
+        "1": {
+            "0": {
+                "axis": "x",
+                "direction": 1,
+                "value": 35.24
+            },
+            "2": {
+                "axis": "y",
+                "direction": -1,
+                "value": 12.38
+            }
+        },
+        "2": {
+            "3": {
+                "axis": "x",
+                "direction": 1,
+                "value": 35.24
+            }
+        }
+    }
+}
