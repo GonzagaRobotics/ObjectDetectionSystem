@@ -1,5 +1,5 @@
 {
-    "marker_size": 1.5,
+    "marker_size": 1.525,
     "corners": {
         "0": {
             "name": "top_right_corner",
@@ -61,5 +61,534 @@
                 "value": 35.24
             }
         }
+    },
+    "xyz_map": {
+        "x": 0,
+        "y": 1,
+        "z": 2
+    },
+    "key_locations": {
+        "esc": [
+            "top_left_corner",
+            1.197,
+            -0.84,
+            1.07
+        ],
+        "f1": [
+            "top_left_corner",
+            5.029,
+            -0.84,
+            1.07
+        ],
+        "f2": [
+            "top_left_corner",
+            6.945,
+            -0.84,
+            1.07
+        ],
+        "f3": [
+            "top_left_corner",
+            8.861,
+            -0.84,
+            1.07
+        ],
+        "f4": [
+            "top_left_corner",
+            10.777,
+            -0.84,
+            1.07
+        ],
+        "f5": [
+            "top_left_corner",
+            13.651,
+            -0.84,
+            1.07
+        ],
+        "f6": [
+            "top_left_corner",
+            15.567,
+            -0.84,
+            1.07
+        ],
+        "f7": [
+            "top_left_corner",
+            17.483,
+            -0.84,
+            1.07
+        ],
+        "f8": [
+            "top_right_corner",
+            -15.841,
+            -0.84,
+            1.07
+        ],
+        "f9": [
+            "top_right_corner",
+            -12.967,
+            -0.84,
+            1.07
+        ],
+        "f10": [
+            "top_right_corner",
+            -11.051,
+            -0.84,
+            1.07
+        ],
+        "f11": [
+            "top_right_corner",
+            -9.135,
+            -0.84,
+            1.07
+        ],
+        "f12": [
+            "top_right_corner",
+            -7.219,
+            -0.84,
+            1.07
+        ],
+        "print_screen": [
+            "top_right_corner",
+            -4.824,
+            -0.84,
+            1.07
+        ],
+        "scroll_lock": [
+            "top_right_corner",
+            -2.908,
+            -0.84,
+            1.07
+        ],
+        "pause": [
+            "top_right_corner",
+            -0.992,
+            -0.84,
+            1.07
+        ],
+        "`": [
+            "top_left_corner",
+            1.197,
+            -3.0,
+            0.928
+        ],
+        "1": [
+            "top_left_corner",
+            3.113,
+            -3.0,
+            0.928
+        ],
+        "2": [
+            "top_left_corner",
+            5.029,
+            -3.0,
+            0.928
+        ],
+        "3": [
+            "top_left_corner",
+            6.945,
+            -3.0,
+            0.928
+        ],
+        "4": [
+            "top_left_corner",
+            8.861,
+            -3.0,
+            0.928
+        ],
+        "5": [
+            "top_left_corner",
+            10.777,
+            -3.0,
+            0.928
+        ],
+        "6": [
+            "top_left_corner",
+            12.693,
+            -3.0,
+            0.928
+        ],
+        "7": [
+            "top_left_corner",
+            14.609,
+            -3.0,
+            0.928
+        ],
+        "8": [
+            "top_left_corner",
+            16.525,
+            -3.0,
+            0.928
+        ],
+        "9": [
+            "top_right_corner",
+            -16.799,
+            -3.0,
+            0.928
+        ],
+        "0": [
+            "top_right_corner",
+            -14.883,
+            -3.0,
+            0.928
+        ],
+        "-": [
+            "top_right_corner",
+            -12.967,
+            -3.0,
+            0.928
+        ],
+        "=": [
+            "top_right_corner",
+            -11.051,
+            -3.0,
+            0.928
+        ],
+        "backspace": [
+            "top_right_corner",
+            -8.177,
+            -3.0,
+            0.928
+        ],
+        "insert": [
+            "top_right_corner",
+            -4.824,
+            -3.0,
+            0.928
+        ],
+        "home": [
+            "top_right_corner",
+            -2.908,
+            -3.0,
+            0.928
+        ],
+        "page_up": [
+            "top_right_corner",
+            -0.992,
+            -3.0,
+            0.928
+        ],
+        "tab": [
+            "top_left_corner",
+            1.676,
+            -4.99,
+            0.752
+        ],
+        "q": [
+            "top_left_corner",
+            4.071,
+            -4.99,
+            0.752
+        ],
+        "w": [
+            "top_left_corner",
+            5.987,
+            -4.99,
+            0.752
+        ],
+        "e": [
+            "top_left_corner",
+            7.903,
+            -4.99,
+            0.752
+        ],
+        "r": [
+            "top_left_corner",
+            9.819,
+            -4.99,
+            0.752
+        ],
+        "t": [
+            "top_left_corner",
+            11.735,
+            -4.99,
+            0.752
+        ],
+        "y": [
+            "top_left_corner",
+            13.651,
+            -4.99,
+            0.752
+        ],
+        "u": [
+            "top_left_corner",
+            15.567,
+            -4.99,
+            0.752
+        ],
+        "i": [
+            "top_left_corner",
+            17.483,
+            -4.99,
+            0.752
+        ],
+        "o": [
+            "top_right_corner",
+            -15.841,
+            -4.99,
+            0.752
+        ],
+        "p": [
+            "top_right_corner",
+            -13.925,
+            -4.99,
+            0.752
+        ],
+        "[": [
+            "top_right_corner",
+            -12.009,
+            -4.99,
+            0.752
+        ],
+        "]": [
+            "top_right_corner",
+            -10.093,
+            -4.99,
+            0.752
+        ],
+        "\\": [
+            "top_right_corner",
+            -7.698,
+            -4.99,
+            0.752
+        ],
+        "delete": [
+            "top_right_corner",
+            -4.824,
+            -4.99,
+            0.752
+        ],
+        "end": [
+            "top_right_corner",
+            -2.908,
+            -4.99,
+            0.752
+        ],
+        "page_down": [
+            "top_right_corner",
+            -0.992,
+            -4.99,
+            0.752
+        ],
+        "caps_lock": [
+            "bottom_left_corner",
+            1.915,
+            5.41,
+            1.272
+        ],
+        "a": [
+            "bottom_left_corner",
+            4.55,
+            5.41,
+            1.272
+        ],
+        "s": [
+            "bottom_left_corner",
+            6.466,
+            5.41,
+            1.272
+        ],
+        "d": [
+            "bottom_left_corner",
+            8.382,
+            5.41,
+            1.272
+        ],
+        "f": [
+            "bottom_left_corner",
+            10.298,
+            5.41,
+            1.272
+        ],
+        "g": [
+            "bottom_left_corner",
+            12.214,
+            5.41,
+            1.272
+        ],
+        "h": [
+            "bottom_left_corner",
+            14.13,
+            5.41,
+            1.272
+        ],
+        "j": [
+            "bottom_left_corner",
+            16.046,
+            5.41,
+            1.272
+        ],
+        "k": [
+            "bottom_right_corner",
+            -17.278,
+            5.41,
+            1.272
+        ],
+        "l": [
+            "bottom_right_corner",
+            -15.362,
+            5.41,
+            1.272
+        ],
+        ";": [
+            "bottom_right_corner",
+            -13.446,
+            5.41,
+            1.272
+        ],
+        "'": [
+            "bottom_right_corner",
+            -11.53,
+            5.41,
+            1.272
+        ],
+        "enter": [
+            "bottom_right_corner",
+            -8.417,
+            5.41,
+            1.272
+        ],
+        "left_shift": [
+            "bottom_left_corner",
+            2.394,
+            3.42,
+            1.111
+        ],
+        "z": [
+            "bottom_left_corner",
+            5.508,
+            3.42,
+            1.111
+        ],
+        "x": [
+            "bottom_left_corner",
+            7.424,
+            3.42,
+            1.111
+        ],
+        "c": [
+            "bottom_left_corner",
+            9.34,
+            3.42,
+            1.111
+        ],
+        "v": [
+            "bottom_left_corner",
+            11.256,
+            3.42,
+            1.111
+        ],
+        "b": [
+            "bottom_left_corner",
+            13.172,
+            3.42,
+            1.111
+        ],
+        "n": [
+            "bottom_left_corner",
+            15.088,
+            3.42,
+            1.111
+        ],
+        "m": [
+            "bottom_left_corner",
+            17.004,
+            3.42,
+            1.111
+        ],
+        ",": [
+            "bottom_right_corner",
+            -16.32,
+            3.42,
+            1.111
+        ],
+        ".": [
+            "bottom_right_corner",
+            -14.404,
+            3.42,
+            1.111
+        ],
+        "/": [
+            "bottom_right_corner",
+            -12.488,
+            3.42,
+            1.111
+        ],
+        "right_shift": [
+            "bottom_right_corner",
+            -8.896,
+            3.42,
+            1.111
+        ],
+        "arrow_up": [
+            "bottom_right_corner",
+            -2.908,
+            3.42,
+            1.111
+        ],
+        "left_ctrl": [
+            "bottom_left_corner",
+            1.437,
+            1.44,
+            0.978
+        ],
+        "left_win": [
+            "bottom_left_corner",
+            3.831,
+            1.44,
+            0.978
+        ],
+        "left_alt": [
+            "bottom_left_corner",
+            6.226,
+            1.44,
+            0.978
+        ],
+        "space": [
+            "bottom_left_corner",
+            13.412,
+            1.44,
+            0.978
+        ],
+        "right_alt": [
+            "bottom_right_corner",
+            -14.644,
+            1.44,
+            0.978
+        ],
+        "fn": [
+            "bottom_right_corner",
+            -12.249,
+            1.44,
+            0.978
+        ],
+        "menu": [
+            "bottom_right_corner",
+            -9.854,
+            1.44,
+            0.978
+        ],
+        "right_ctrl": [
+            "bottom_right_corner",
+            -7.459,
+            1.44,
+            0.978
+        ],
+        "arrow_left": [
+            "bottom_right_corner",
+            -4.824,
+            1.44,
+            0.978
+        ],
+        "arrow_down": [
+            "bottom_right_corner",
+            -2.908,
+            1.44,
+            0.978
+        ],
+        "arrow_right": [
+            "bottom_right_corner",
+            -0.992,
+            1.44,
+            0.978
+        ]
     }
 }

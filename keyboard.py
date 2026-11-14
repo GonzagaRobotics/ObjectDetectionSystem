@@ -32,13 +32,15 @@ class KeyboardPose(Processor):
             for i in jsonobj["distances"]:
                 for j in jsonobj["distances"][i]:
                     self.DISTANCES[(int(i), (int(j)))] = ((jsonobj["distances"][i][j]["axis"]), float(jsonobj["distances"][i][j]["direction"]), float(jsonobj["distances"][i][j]["value"]))
+            self.KEYS = {}
+            for key in jsonobj["key_locations"]:
+                self.KEYS[key] = tuple(jsonobj["key_locations"][key])
             self.tag_processor = TagDetector(calibration_file, self.marker_size)
             self.recognizer = self.tag_processor.recognizer
             with open(calibration_file, "rb") as f:
                 params = pickle.load(f)
                 self.cameraMatrix = params[0]
                 self.distCoeffs = params[1]
-
 
     def refresh(self, img: cv2.Mat):
         return super().refresh(img)
@@ -90,13 +92,11 @@ class KeyboardPose(Processor):
                 tvec = np.asarray(self.tags[id][0]).reshape(3, 1)
 
                 R, _ = cv2.Rodrigues(new_rvec)
-
                 new_tvec = R @ xyz_matrix_corner.reshape(3, 1) + tvec
                 new_tvec = new_tvec.reshape(1, 3)
 
                 for to_id in self.CORNERS:
                     if to_id == id:
-                        print(new_rvec)
                         new_vecs[self.CORNER_NAMES[to_id]] = [new_tvec[0], new_rvec]
                         locks[to_id] = True
                     elif not locks[to_id]:
@@ -119,6 +119,14 @@ class KeyboardPose(Processor):
 
         if self.check_keyboard(new_vecs):
             self.vecs = new_vecs
+            for key in self.KEYS:
+                res = self.KEYS[key]
+                curr_tvec = new_vecs[res[0]][0]
+                new_rvec = new_vecs[res[0]][1]
+                R, _ = cv2.Rodrigues(new_rvec)
+                new_tvec = R @ np.asarray(res[1:]).reshape(3, 1) + np.asarray(curr_tvec).reshape(3, 1)
+                new_tvec = new_tvec.reshape(1, 3)
+                new_vecs[key] = [new_tvec, new_rvec]
 
         return self.vecs
 
